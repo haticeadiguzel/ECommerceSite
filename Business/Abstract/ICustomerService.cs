@@ -5,9 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities.Concrete;
 
-namespace DataAccess.Abstract
+namespace Business.Abstract
 {
-    public interface ICategoryDal : IEntityRepository<Category>
+    public interface ICustomerService
     {
+        List<Customer> GetAll();
     }
 }

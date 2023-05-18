@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Abstract;
@@ -24,6 +25,21 @@ namespace DataAccess.Concrete.InMemory
             };
         }
 
+        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product Get(Expression<Func<Product, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Product Get()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Add(Product product)
         {
             _products.Add(product);
@@ -35,16 +51,6 @@ namespace DataAccess.Concrete.InMemory
 
             Product productToDelete = _products.SingleOrDefault(p => p.ProductId == product.ProductId); //sigleordefault 1 tane arar genellikle id aramalarında kulşlanılır
             _products.Remove(productToDelete);
-        }
-
-        public List<Product> GetAll()
-        {
-            return _products;
-        }
-
-        public List<Product> GetAllByCategory(int categoryId)
-        {
-            return _products.Where(p => p.CategoryId == categoryId).ToList();
         }
 
         public void Update(Product product)

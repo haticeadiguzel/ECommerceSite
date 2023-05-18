@@ -9,18 +9,18 @@ using Entities.Concrete;
 
 namespace Business.Concrete
 {
-    public class CategoryManager : ICategoryService
+    public class CustomerManager : ICustomerService
     {
-        ICategoryDal _categoryDal;
+        ICustomerDal _customerDal;
 
-        public CategoryManager(ICategoryDal categoryDal)
+        public CustomerManager(ICustomerDal customerDal)
         {
-            _categoryDal = categoryDal;
+            _customerDal = customerDal;
         }
 
-        public List<Category> GetAll()
+        public List<Customer> GetAll()
         {
-            return _categoryDal.GetAll(); //tümünü getir
+            return _customerDal.GetAll();
         }
     }
 }

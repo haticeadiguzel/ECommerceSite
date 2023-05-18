@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess.Abstract;
@@ -21,6 +22,21 @@ namespace DataAccess.Concrete.InMemory
             };
         }
 
+        public List<Category> GetAll(Expression<Func<Category, bool>> filter = null)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Category Get(Expression<Func<Category, bool>> filter)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Category Get()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Add(Category category)
         {
             _categories.Add(category);
@@ -30,11 +46,6 @@ namespace DataAccess.Concrete.InMemory
         {
             Category categoryToDelete = _categories.SingleOrDefault(c => c.CategoryId == category.CategoryId);
             _categories.Remove(categoryToDelete);
-        }
-
-        public List<Category> GetAll()
-        {
-            return _categories;
         }
 
         public void Update(Category category)
