@@ -228,7 +228,6 @@
   <ItemGroup>
     <Compile Include="Abstract\ICategoryDal.cs" />
     <Compile Include="Abstract\ICustomerDal.cs" />
-    <Compile Include="Abstract\IEntityRepository.cs" />
     <Compile Include="Abstract\IProductDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfCategoryDal.cs" />
     <Compile Include="Concrete\EntityFramework\EfCustomerDal.cs" />
@@ -244,6 +243,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{2DE7F011-B395-4E58-B22B-6EB5B8FA0CC3}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{085DD23D-1CF1-4E5A-BE02-832BED4A5C64}</Project>
       <Name>Entities</Name>

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using Entities.Abstract;
+using Core.Entities;
 
-namespace DataAccess.Abstract
+namespace Core.DataAccess //Core katmanı diğer katmanları referans almaz
 {
     //Generic yapı için oluşturulur, Sınırlamak için generic constraint denir
     //class: Referans tip
