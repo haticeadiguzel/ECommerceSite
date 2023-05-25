@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.DataAccess;
 using Entities.Concrete;
 
-namespace Business.Abstract
+namespace DataAccess.Abstract
 {
-    public interface ICustomerService
+    public interface IOrderDal : IEntityRepository<Order>
     {
-        List<Customer> GetAll();
-        Customer GetById(string id);
     }
 }

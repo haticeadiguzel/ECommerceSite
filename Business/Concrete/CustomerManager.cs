@@ -22,5 +22,10 @@ namespace Business.Concrete
         {
             return _customerDal.GetAll();
         }
+
+        public Customer GetById(string id)
+        {
+            return _customerDal.Get(c => c.CustomerId == id);
+        }
     }
 }

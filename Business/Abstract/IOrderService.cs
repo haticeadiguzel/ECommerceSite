@@ -7,9 +7,9 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
-    public interface ICustomerService
+    public interface IOrderService
     {
-        List<Customer> GetAll();
-        Customer GetById(string id);
+        List<Order> GetAll();
+        Order GetById(int id);
     }
 }

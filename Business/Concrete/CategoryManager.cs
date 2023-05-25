@@ -20,7 +20,12 @@ namespace Business.Concrete
 
         public List<Category> GetAll()
         {
-            return _categoryDal.GetAll(); //tümünü getir
+            return _categoryDal.GetAll();
+        }
+
+        public Category GetById(int categoryId)
+        {
+            return _categoryDal.Get(c => c.CategoryId == categoryId);
         }
     }
 }
