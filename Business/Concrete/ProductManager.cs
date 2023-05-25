@@ -27,17 +27,22 @@ namespace Business.Concrete
 
         public List<Product> GetAllByCategoryId(int id)
         {
-            return _productDal.GetAll(p => p.CategoryId == id); //p.CategoryId == id olanları filtrele
+            return _productDal.GetAll(p => p.CategoryId == id);
         }
 
         public List<Product> GetByUnitPrice(decimal min, decimal max)
         {
-            return _productDal.GetAll(p => p.UnitPrice >=min && p.UnitPrice<=max); //p.UnitPrice >=min && p.UnitPrice<=max olanları filtrele
+            return _productDal.GetAll(p => p.UnitPrice >=min && p.UnitPrice<=max);
         }
 
         public List<ProductDetailDto> GetProductDetails()
         {
             return _productDal.GetProductDetails();
+        }
+
+        public Product GetById(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public void Add(Product product)

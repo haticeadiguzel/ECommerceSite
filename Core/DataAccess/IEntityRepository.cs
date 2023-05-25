@@ -6,14 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.Entities;
 
-namespace Core.DataAccess //Core katmanı diğer katmanları referans almaz
+namespace Core.DataAccess
 {
-    //Generic yapı için oluşturulur, Sınırlamak için generic constraint denir
-    //class: Referans tip
-    //Generic kısımda T yi sınırlandırdık. T bir class olabilir, IEntity ile imlemente edilmiş olabilir, Ayrıca new'lenebilir olacak. Bu sayede abstrackt class olmaz
     public interface IEntityRepository<T> where T : class, IEntity, new()
     {
-        List<T> GetAll(Expression<Func<T, bool>> filter = null); // GetAll(p => p.CategoryId==2) gibi filtreleme yapmamıza izin verir
+        List<T> GetAll(Expression<Func<T, bool>> filter = null);
         T Get(Expression<Func<T, bool>> filter);
         void Add(T entity);
         void Update(T entity);

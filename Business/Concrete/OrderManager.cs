@@ -27,5 +27,20 @@ namespace Business.Concrete
         {
             return _orderDal.Get(o => o.OrderId == id);
         }
+
+        public void Add(Order order)
+        {
+            _orderDal.Add(order);
+        }
+
+        public void Update(Order order)
+        {
+            _orderDal.Update(order);
+        }
+
+        public void Delete(Order order)
+        {
+            _orderDal.Delete(order);
+        }
     }
 }

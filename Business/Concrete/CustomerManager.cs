@@ -27,5 +27,20 @@ namespace Business.Concrete
         {
             return _customerDal.Get(c => c.CustomerId == id);
         }
+
+        public void Add(Customer customer)
+        {
+            _customerDal.Add(customer);
+        }
+
+        public void Update(Customer customer)
+        {
+            _customerDal.Update(customer);
+        }
+
+        public void Delete(Customer customer)
+        {
+            _customerDal.Delete(customer);
+        }
     }
 }
