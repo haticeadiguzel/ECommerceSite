@@ -4,7 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
+using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
 
 namespace Business.Concrete
@@ -18,29 +21,36 @@ namespace Business.Concrete
             _orderDal = orderDal;
         }
 
-        public List<Order> GetAll()
+        public IDataResult<List<Order>> GetAll()
         {
-            return _orderDal.GetAll();
+            if (DateTime.Now.Hour == 22)
+            {
+                return new ErrorDataResult<List<Order>>(Messages.MaintenanceTime);
+            }
+            return new SuccessDataResult<List<Order>>(_orderDal.GetAll(), Messages.OrdersListed);
         }
 
-        public Order GetById(int id)
+        public IDataResult<Order> GetById(int id)
         {
-            return _orderDal.Get(o => o.OrderId == id);
+            return new SuccessDataResult<Order>(_orderDal.Get(o => o.OrderId == id), Messages.OrderListedGetById);
         }
 
-        public void Add(Order order)
+        public IResult Add(Order order)
         {
             _orderDal.Add(order);
+            return new Result(true, Messages.OrderAdded);
         }
 
-        public void Update(Order order)
+        public IResult Update(Order order)
         {
             _orderDal.Update(order);
+            return new Result(true, Messages.OrderUpdated);
         }
 
-        public void Delete(Order order)
+        public IResult Delete(Order order)
         {
             _orderDal.Delete(order);
+            return new Result(true, Messages.OrderDeleted);
         }
     }
 }

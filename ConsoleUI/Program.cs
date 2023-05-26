@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Concrete;
@@ -12,7 +13,7 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            ProductTest();
+            //ProductTest();
             //CategoryTest();
             //CustomerTest();
             //OrderTest();
@@ -24,7 +25,7 @@ namespace ConsoleUI
         private static void OrderTest()
         {
             OrderManager orderManager = new OrderManager(new EfOrderDal());
-            foreach (var order in orderManager.GetAll())
+            foreach (var order in orderManager.GetAll().Data)
             {
                 Console.WriteLine(order.OrderId);
             }
@@ -40,16 +41,25 @@ namespace ConsoleUI
                 Console.WriteLine(product.ProductName);
             }*/
 
-            foreach (var product in productManager.GetProductDetails())
+            var result = productManager.GetProductDetails();
+            if (result.Success)
             {
-                Console.WriteLine(product.ProductName + "/" + product.CategoryName);
+                foreach (var product in result.Data)
+                {
+                    Console.WriteLine(product.ProductName + "/" + product.CategoryName);
+                    Console.WriteLine(result.Message);
+                }
+            }
+            else
+            {
+                Console.WriteLine(result.Message);
             }
         }
 
         private static void CategoryTest()
         {
             CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
-            foreach (var category in categoryManager.GetAll())
+            foreach (var category in categoryManager.GetAll().Data)
             {
                 Console.WriteLine(category.CategoryName);
             }
@@ -58,7 +68,7 @@ namespace ConsoleUI
         private static void CustomerTest()
         {
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
-            foreach (var customer in customerManager.GetAll())
+            foreach (var customer in customerManager.GetAll().Data)
             {
                 Console.WriteLine(customer.CompanyName);
             }
