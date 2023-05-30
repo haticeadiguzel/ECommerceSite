@@ -18,7 +18,6 @@ namespace ConsoleUI
             //CustomerTest();
             //OrderTest();
 
-
             Console.ReadLine();
         }
 
