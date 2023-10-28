@@ -26,7 +26,7 @@ namespace ConsoleUI
             OrderManager orderManager = new OrderManager(new EfOrderDal());
             foreach (var order in orderManager.GetAll().Data)
             {
-                Console.WriteLine(order.OrderId);
+                Console.WriteLine(order.order_id);
             }
            
         }
@@ -45,7 +45,7 @@ namespace ConsoleUI
             {
                 foreach (var product in result.Data)
                 {
-                    Console.WriteLine(product.ProductName + "/" + product.CategoryName);
+                    Console.WriteLine(product.product_name + "/" + product.category_name);
                     Console.WriteLine(result.Message);
                 }
             }
@@ -60,7 +60,7 @@ namespace ConsoleUI
             CategoryManager categoryManager = new CategoryManager(new EfCategoryDal());
             foreach (var category in categoryManager.GetAll().Data)
             {
-                Console.WriteLine(category.CategoryName);
+                Console.WriteLine(category.category_name);
             }
         }
 
@@ -69,7 +69,7 @@ namespace ConsoleUI
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
             foreach (var customer in customerManager.GetAll().Data)
             {
-                Console.WriteLine(customer.CompanyName);
+                Console.WriteLine(customer.company_name);
             }
         }
     }

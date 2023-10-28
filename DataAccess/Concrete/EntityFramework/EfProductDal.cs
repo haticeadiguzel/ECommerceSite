@@ -13,15 +13,15 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (NorthwindContext context = new NorthwindContext())
             {
-                var result = from p in context.Products
-                    join c in context.Categories
-                        on p.CategoryId equals c.CategoryId
+                var result = from p in context.products
+                    join c in context.categories
+                        on p.category_id equals c.category_id
                     select new ProductDetailDto
                     {
-                        ProductId = p.ProductId,
-                        ProductName = p.ProductName,
-                        CategoryName = c.CategoryName,
-                        UnitsInStock = p.UnitsInStock
+                        product_id = p.product_id,
+                        product_name = p.product_name,
+                        category_name = c.category_name,
+                        units_in_stock = p.units_in_stock
                     };
 
                 return result.ToList();

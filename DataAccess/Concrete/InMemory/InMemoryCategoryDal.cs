@@ -9,50 +9,50 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.InMemory
 {
-    public class InMemoryCategoryDal : ICategoryDal
+    public class InMemoryCategoryDal
     {
-        List<Category> _categories;
+        ////List<Category> _categories;
 
-        public InMemoryCategoryDal()
-        {
-            _categories = new List<Category>
-            {
-                new Category { CategoryId = 1, CategoryName = "Mutfak" },
-                new Category { CategoryId = 2, CategoryName = "Teknoloji" }
-            };
-        }
+        //public InMemoryCategoryDal()
+        //{
+        //    //_categories = new List<Category>
+        //    //{
+        //    //    new Category { CategoryId = 1, CategoryName = "Mutfak" },
+        //    //    new Category { CategoryId = 2, CategoryName = "Teknoloji" }
+        //    //};
+        //}
 
-        public List<Category> GetAll(Expression<Func<Category, bool>> filter = null)
-        {
-            throw new NotImplementedException();
-        }
+        //public List<Category> GetAll(Expression<Func<Category, bool>> filter = null)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public Category Get(Expression<Func<Category, bool>> filter)
-        {
-            throw new NotImplementedException();
-        }
+        //public Category Get(Expression<Func<Category, bool>> filter)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public Category Get()
-        {
-            throw new NotImplementedException();
-        }
+        //public Category Get()
+        //{
+        //    throw new NotImplementedException();
+        //}
 
-        public void Add(Category category)
-        {
-            _categories.Add(category);
-        }
+        //public void Add(Category category)
+        //{
+        //    _categories.Add(category);
+        //}
 
-        public void Delete(Category category)
-        {
-            Category categoryToDelete = _categories.SingleOrDefault(c => c.CategoryId == category.CategoryId);
-            _categories.Remove(categoryToDelete);
-        }
+        //public void Delete(Category category)
+        //{
+        //    Category categoryToDelete = _categories.SingleOrDefault(c => c.category_id == category.category_id);
+        //    _categories.Remove(categoryToDelete);
+        //}
 
-        public void Update(Category category)
-        {
-            Category categoryToUPdate = _categories.SingleOrDefault(c => c.CategoryId == category.CategoryId);
-            categoryToUPdate.CategoryId = category.CategoryId;
-            categoryToUPdate.CategoryName = category.CategoryName;
-        }
+        //public void Update(Category category)
+        //{
+        //    Category categoryToUPdate = _categories.SingleOrDefault(c => c.category_id == category.category_id);
+        //    categoryToUPdate.category_id = category.category_id;
+        //    categoryToUPdate.category_name = category.category_name;
+        //}
     }
 }

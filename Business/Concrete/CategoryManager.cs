@@ -32,7 +32,7 @@ namespace Business.Concrete
 
         public IDataResult<Category> GetById(int categoryId)
         {
-            return new SuccessDataResult<Category>(_categoryDal.Get(c => c.CategoryId == categoryId), Messages.CategoriesListedGetById);
+            return new SuccessDataResult<Category>(_categoryDal.Get(c => c.category_id == categoryId), Messages.CategoriesListedGetById);
         }
 
         public IResult Add(Category category)

@@ -55,7 +55,7 @@ namespace WebAPI.Controllers
         [HttpGet("getallbyunitprice")]
         public IActionResult GetAllByUnitPrice(decimal min, decimal max)
         {
-            var result = _productService.GetByUnitPrice(min,max);
+            var result = _productService.GetByUnitPrice(min, max);
             if (result.Success)
             {
                 return Ok(result); //200

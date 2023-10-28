@@ -32,7 +32,7 @@ namespace Business.Concrete
 
         public IDataResult<Order> GetById(int id)
         {
-            return new SuccessDataResult<Order>(_orderDal.Get(o => o.OrderId == id), Messages.OrderListedGetById);
+            return new SuccessDataResult<Order>(_orderDal.Get(o => o.order_id == id), Messages.OrderListedGetById);
         }
 
         public IResult Add(Order order)

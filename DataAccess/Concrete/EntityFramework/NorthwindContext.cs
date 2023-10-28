@@ -13,14 +13,23 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB; Database=Northwind; Trusted_Connection=true");
+            optionsBuilder.UseNpgsql(@"Host=172.17.0.2; Port=5432; Username=hatice; Password=ataturk; Database=Northwind");
             //Trusted_Connection Kullanıcı adı şifre gerektirmez
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Product>().HasNoKey();
+            modelBuilder.Entity<Category>().HasNoKey();
+            modelBuilder.Entity<Customer>().HasNoKey();
+            modelBuilder.Entity<Order>().HasNoKey();
+        }
+
+
         //DbSet ile veritabanındaki tabloya karşılık gelen entity eşlenir
-        public DbSet<Product> Products { get; set; } 
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Customer> Customers { get; set; }
-        public DbSet<Order> Orders { get; set; }
+        public DbSet<Product> products { get; set; } 
+        public DbSet<Category> categories { get; set; }
+        public DbSet<Customer> customers { get; set; }
+        public DbSet<Order> orders { get; set; }
     }
 }

@@ -4,10 +4,10 @@ namespace Entities.Concrete
 {
     public class Product : IEntity
     {
-        public int ProductId { get; set; }
-        public int CategoryId { get; set; }
-        public string ProductName { get; set; }
-        public short UnitsInStock { get; set; }
-        public decimal UnitPrice { get; set; }
+        public short product_id { get; set; }
+        public short category_id { get; set; }
+        public string product_name { get; set; }
+        public short units_in_stock { get; set; }
+        public decimal unit_price { get; set; }
     }
 }

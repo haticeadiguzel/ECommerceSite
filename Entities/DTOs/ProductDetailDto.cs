@@ -4,9 +4,9 @@ namespace Entities.DTOs //Data Transformation Object
 {
     public class ProductDetailDto : IDto
     {
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public string CategoryName { get; set; }
-        public short UnitsInStock { get; set; }
+        public short product_id { get; set; }
+        public string product_name { get; set; }
+        public string category_name { get; set; }
+        public short units_in_stock { get; set; }
     }
 }

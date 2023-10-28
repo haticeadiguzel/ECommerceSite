@@ -9,10 +9,10 @@ namespace Entities.Concrete
 {
     public class Order : IEntity
     {
-        public int OrderId { get; set; }
-        public string CustomerId { get; set; }
-        public int EmployeeId { get; set; }
-        public DateTime OrderDate { get; set; }
-        public string ShipCity { get; set; }
+        public short order_id { get; set; }
+        public string customer_id { get; set; }
+        public short employee_id { get; set; }
+        public DateTime order_date { get; set; }
+        public string ship_city { get; set; }
     }
 }

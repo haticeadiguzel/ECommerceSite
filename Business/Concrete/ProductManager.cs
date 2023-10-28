@@ -33,12 +33,12 @@ namespace Business.Concrete
 
         public IDataResult<List<Product>> GetAllByCategoryId(int id)
         {
-            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.CategoryId == id), Messages.ProductListedGetAllByCategoryId);
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.category_id == id), Messages.ProductListedGetAllByCategoryId);
         }
 
         public IDataResult<List<Product>> GetByUnitPrice(decimal min, decimal max)
         {
-            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.UnitPrice >=min && p.UnitPrice<=max), Messages.ProductListedGetByUnitPrice);
+            return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.unit_price >=min && p.unit_price<=max), Messages.ProductListedGetByUnitPrice);
         }
 
         public IDataResult<List<ProductDetailDto>> GetProductDetails()
@@ -48,12 +48,12 @@ namespace Business.Concrete
 
         public IDataResult<Product> GetById(int id)
         {
-            return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == id), Messages.ProductListedGetById);
+            return new SuccessDataResult<Product>(_productDal.Get(p => p.product_id == id), Messages.ProductListedGetById);
         }
 
         public IResult Add(Product product)
         {
-            if (product.ProductName.Length < 2)
+            if (product.product_name.Length < 2)
             {
                 return new ErrorResult(Messages.ProductNameInvalid);
             }
