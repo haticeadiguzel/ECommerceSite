@@ -1,9 +1,11 @@
-﻿using Core.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+using Core.Entities;
 
 namespace Entities.Concrete
 {
     public class Product : IEntity
     {
+        [Key]
         public short product_id { get; set; }
         public short category_id { get; set; }
         public string product_name { get; set; }

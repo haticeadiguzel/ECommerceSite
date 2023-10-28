@@ -17,15 +17,6 @@ namespace DataAccess.Concrete.EntityFramework
             //Trusted_Connection Kullanıcı adı şifre gerektirmez
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Product>().HasNoKey();
-            modelBuilder.Entity<Category>().HasNoKey();
-            modelBuilder.Entity<Customer>().HasNoKey();
-            modelBuilder.Entity<Order>().HasNoKey();
-        }
-
-
         //DbSet ile veritabanındaki tabloya karşılık gelen entity eşlenir
         public DbSet<Product> products { get; set; } 
         public DbSet<Category> categories { get; set; }
